@@ -7,7 +7,7 @@ const Query = {
       return db.posts.filter((post) => {
         const isTitleMatch = post.title.toLowerCase().includes(args.query.toLowerCase())
         const isAuthorMatch = post.author.toLowerCase().includes(args.query.toLowerCase())
-        retuern isTitleMatch || isAuthorMatch
+        return isTitleMatch || isAuthorMatch
       })
     }
   }
