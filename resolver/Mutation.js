@@ -1,5 +1,5 @@
 const Mutation = {
-  createPost(parent, args, {db, pubsub }, info){
+  createPost(parent, args, { db, pubsub }, info){
     const postNumTotal = String(db.posts.length + 1)
     // フラグメント利用
     const post = {
@@ -18,8 +18,8 @@ const Mutation = {
     })
     return post
   }, 
-  updatePost(parent, args, {db, pubsub}, info) {
-    const {id, data} = args
+  updatePost(parent, args, { db, pubsub }, info) {
+    const { id, data } = args
     const post = db.posts.find((post) => post.id === id)
     if (!post) {
       throw new Error('Post not found')
