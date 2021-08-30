@@ -1,11 +1,11 @@
-const {ApolloSerber, PubSub, ApolloServer} = require('apollo-server');
+const {ApolloServer, PubSub} = require('apollo-server');
 const db = require('./db')
-const Query = require('./resolever/Query')
-const Mutation = require('./resolever/Mutation')
+const Query = require('./resolver/Query')
+const Mutation = require('./resolver/Mutation')
 const Subscription = require('./resolver/Subscription')
 const typeDefs = require('./schema')
 
-// Pubsubのインスタンスを作成, サブスクリプションが利用可能
+// PubSubのインスタンスを作成, サブスクリプションが利用可能
 const pubsub = new PubSub()
 
 const server = new ApolloServer({
@@ -21,7 +21,7 @@ const server = new ApolloServer({
   }
 })
 
-server.listen.then(({url, subscription }) => {
+server.listen().then(({ url, subscriptionsUrl }) => {
   console.log(`Server ready at ${url}`);
-  console.log(`Subscription ready at ${subscriptionURL}`);
+  console.log(`Subscriptions ready at ${subscriptionsUrl}`);
 });

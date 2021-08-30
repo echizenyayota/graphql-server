@@ -9,7 +9,7 @@ const typeDefs = gql`
   type Mutation {
     createPost(data: CreatePostInput!): Post!
     deletePost(id: ID!): Post!
-    updatedPost(id: ID!, data: UpdatePostInput): Post!
+    updatePost(id: ID!, data: UpdatePostInput!): Post!
   }
 
   # サブスクリプション
@@ -22,7 +22,7 @@ const typeDefs = gql`
     author: String!
   }
 
-  input UpdatedPostInput {
+  input UpdatePostInput {
     title: String
     author: String!
   }
@@ -33,14 +33,14 @@ const typeDefs = gql`
     author: String!
   }
 
-  enum Mutation Type {
+  enum MutationType {
     CREATED
     UPDATED
     DELETED
   }
 
   # サブスクリプションのフィールド
-  type PostSubscriptionPayLoad {
+  type PostSubscriptionPayload {
     mutation: MutationType!
     data: Post!
   }
