@@ -1,6 +1,7 @@
 const Mutation = {
   createPost(parent, args, {db, pubsub }, info){
     const postNumTotal = String(db.posts.length + 1)
+    // フラグメント利用
     const post = {
       id: postNumTotal,
       ...args.data
